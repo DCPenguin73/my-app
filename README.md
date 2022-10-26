@@ -27,7 +27,7 @@ I made this in visual studio code and used HTML, CSS, JavaScript, and the react 
 
 
 
-#Below is an auto generated readme that was generated with how I started this project. It goes more in depth on how to run a react web application.
+# Below is an auto generated readme that was generated with how I started this project. It goes more in depth on how to run a react web application.
 
 
 
