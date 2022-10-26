@@ -1,3 +1,36 @@
+# Overview
+
+This is a web application made with react JavaScript. It is a basic version of the game connect 4 but you can undo, or redo moves you made.
+
+I wanted to experiment with web applications and see if I could make a web game.
+
+[Software Demo Video](https://youtu.be/C6jkeOE_sok)
+
+# Web Pages
+
+The page dynamically creates the board, the undo buttons, the X or Os, and who’s turn it is or the winner.
+
+# Development Environment
+
+I made this in visual studio code and used HTML, CSS, JavaScript, and the react library of JavaScript.
+
+# Useful Websites
+
+* [React](https://reactjs.org/tutorial/tutorial.html)
+* [W3 Schools](https://www.w3schools.com/react/)
+
+# Future Work
+
+* I want to make win tracker, so that if you start over it keeps track of who has won each game.
+* I want to add another row to match the official board size.
+* I think it would be cool to add some sort of effect when someone wins.
+
+
+
+#Below is an auto generated readme that was generated with how I started this project. It goes more in depth on how to run a react web application.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
