@@ -1,7 +1,9 @@
+// imports
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+// function to makes the individual buttons that make up the board
 function Square(props) {
     return (
         <button 
@@ -12,7 +14,7 @@ function Square(props) {
         </button>
     );
 }
-  
+// class for the board, handles drawing the squares of the board and 
 class Board extends React.Component {
     renderSquare(i) {
         return (
@@ -22,7 +24,7 @@ class Board extends React.Component {
             />
         );
     }
-  
+    // draws the board
     render() {
         return (
             <div>
@@ -76,6 +78,7 @@ class Board extends React.Component {
     }
 }
   
+// game class that handles what happens when you click on a square, creating the array for the undo buttons, ect.
 class Game extends React.Component {
     constructor(props) {
         super(props);
@@ -88,17 +91,21 @@ class Game extends React.Component {
         };
     }
 
+    // what happens when you click a square
     handleClick(i) {
         const history = this.state.history.slice(0,
     this.state.stepNumber + 1);
         const current = history[history.length - 1];
         const squares = current.squares.slice();
+        // wont let you click on a square after game ends or if it is already clicked
         if (calculateWinner(squares) || squares[i]) {
             return;
         }
+        // wont let you click on a square if the one below it is not filled
         if (squares[i-7] === null) {
             return;
         }
+        // figures out who's turn is next
         squares[i] = this.state.xIsNext ? 'X' : 'O';
         this.setState({
             history: history.concat([{
@@ -109,6 +116,7 @@ class Game extends React.Component {
         });
     }
 
+    // handles jumping around to diffrent turns of the game
     jumpTo(step) {
         this.setState({
             stepNumber: step,
@@ -116,6 +124,7 @@ class Game extends React.Component {
         });
     }
 
+    // creates the jump buttons
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -132,6 +141,7 @@ class Game extends React.Component {
             );
         });
 
+        // shows who's turn it is or if someone won
         let status;
         if (winner) {
             status = 'Winner: ' + winner;
@@ -155,11 +165,12 @@ class Game extends React.Component {
     }
 }
   
-  // ========================================
+// ========================================
   
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<Game />);
 
+// how to tell if someone one
 function calculateWinner(squares) {
     const lines = [
         // top row
@@ -230,6 +241,7 @@ function calculateWinner(squares) {
         [10, 16, 22, 28],
 
     ];
+    // loop checking for win
     for (let i = 0; i < lines.length; i++) {
         const [a, b, c, d] = lines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c] && squares[a] === squares[d]) {
